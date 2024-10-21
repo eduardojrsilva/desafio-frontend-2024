@@ -1,0 +1,36 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins' !important;
+}
+
+html,
+body {
+  height: 100%;
+  color: #4a4c4d;
+}
+
+@media(max-width: 960px) {
+  html {
+    font-size: 93.75%; // 15px
+  }
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}

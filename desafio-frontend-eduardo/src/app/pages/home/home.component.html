@@ -1,0 +1,33 @@
+<div class="container">
+  <section class="introduction">
+    <h1>E se pokémons realmente existissem?</h1>
+
+    <h4>Seria bem legal né?</h4>
+
+    <p>E que tal simularmos qual pokémon você encontraria perto de sua casa?</p>
+
+    <p>Preencha o formulário abaixo, jogue sua pokebola, e com base no clima atual da localização, lhe diremos qual
+      pokémon você capturou!</p>
+  </section>
+
+  <form class="form-container" #f="ngForm" (ngSubmit)="onSubmitForm(f)">
+    <div>
+      <label for="city">Cidade</label>
+      <input class="city-input" type="text" id="city" placeholder="Divinópolis" ngModel name="city" required />
+    </div>
+
+    <div>
+      <label for="country">País</label>
+      <input class="country-input" type="text" id="country" placeholder="BR" ngModel name="country" />
+    </div>
+
+    <button type="submit">Buscar</button>
+  </form>
+
+  <span *ngIf="!!weatherInfo">
+    {{weatherInfo.weather}} - {{weatherInfo.description}} - {{weatherInfo.temperature}}°C -
+    {{weatherInfo.city}}/{{weatherInfo.country}}
+  </span>
+
+  <span *ngIf="isRaining">Está chovendo</span>
+</div>

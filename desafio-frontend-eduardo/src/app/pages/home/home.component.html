@@ -2,9 +2,9 @@
   <section class="introduction">
     <h1>E se pokémons realmente existissem?</h1>
 
-    <h4>Seria bem legal né?</h4>
+    <h2>Seria bem legal né?</h2>
 
-    <p>E que tal simularmos qual pokémon você encontraria perto de sua casa?</p>
+    <h3>E que tal simularmos qual pokémon você encontraria perto de sua casa?</h3>
 
     <p>Preencha o formulário abaixo, jogue sua pokebola, e com base no clima atual da localização, lhe diremos qual
       pokémon você capturou!</p>
@@ -24,10 +24,17 @@
     <button type="submit">Buscar</button>
   </form>
 
-  <span *ngIf="!!weatherInfo">
-    {{weatherInfo.weather}} - {{weatherInfo.description}} - {{weatherInfo.temperature}}°C -
-    {{weatherInfo.city}}/{{weatherInfo.country}}
-  </span>
+  <div class="cards-wrapper">
+    <div class="weather-card" *ngIf="!!weatherInfo">
+      <img src={{weatherInfo.iconUrl}} alt="Weather icon">
 
-  <span *ngIf="isRaining">Está chovendo</span>
+      <div>
+        <h3>{{weatherInfo.description}}</h3>
+
+        <p>{{weatherInfo.temperature}}°C</p>
+
+        <span>{{weatherInfo.city}}/{{weatherInfo.country}}</span>
+      </div>
+    </div>
+  </div>
 </div>

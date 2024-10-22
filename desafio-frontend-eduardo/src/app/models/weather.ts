@@ -21,6 +21,7 @@ export interface WeatherResponse {
     {
       main: WeatherConditions,
       description: string,
+      icon: string,
     }
   >,
   main: {
@@ -35,6 +36,7 @@ export interface WeatherResponse {
 export interface FormattedWeather {
   weather: WeatherConditions;
   description: string;
+  iconUrl: string;
   temperature: number;
   city: string;
   country: string;

@@ -11,6 +11,7 @@
   text-align: center;
 
   h1 {
+    font-size: 2.5rem;
     color: blue;
   }
 }
@@ -18,7 +19,7 @@
 .form-container {
   display: flex;
   gap: 16px;
-  padding: 20px;
+  padding: 1rem;
   border: 1px solid blue;
   border-radius: 16px;
   ;
@@ -73,4 +74,49 @@
 .country-input {
   width: 50px;
   text-transform: uppercase;
+}
+
+.cards-wrapper {
+  display: flex;
+  gap: 24px;
+}
+
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 6px solid #878787;
+  border-radius: 8px;
+
+  width: 320px;
+  height: 450px;
+  padding: 16px;
+
+  background: linear-gradient(180deg, #f1f1f1 0%, #c1c1c1 100%);
+
+  >div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100%;
+  }
+
+  h3 {
+    font-size: 2rem;
+    text-transform: capitalize;
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 3rem;
+    color: blue;
+  }
+
+  span {
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
 }

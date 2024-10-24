@@ -1,0 +1,17 @@
+<div class="pokemon-card" [ngClass]="pokemonTypeInfo.cardClass" *ngIf="!!pokemonInfo && !!pokemonTypeInfo">
+  <div class="pokemon-card-header">
+    <div>
+      <img src={{pokemonInfo.imageUrl}} alt="Pokemon image">
+    </div>
+
+    <span>{{pokemonInfo.name}}</span>
+  </div>
+
+  <section class="pokemon-stats">
+    <div *ngFor="let stat of pokemonInfo.stats">
+      <span [ngStyle]="{'background': pokemonTypeInfo.mainColor}">{{stat.name}}</span>
+
+      <span [ngStyle]="{'color': pokemonTypeInfo.mainColor}">{{stat.stat}}</span>
+    </div>
+  </section>
+</div>

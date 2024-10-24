@@ -13,11 +13,13 @@
   <form class="form-container" #f="ngForm" (ngSubmit)="onSubmitForm(f)">
     <div>
       <label for="city">Cidade</label>
+
       <input class="city-input" type="text" id="city" placeholder="Divinópolis" ngModel name="city" required />
     </div>
 
     <div>
       <label for="country">País</label>
+
       <input class="country-input" type="text" id="country" placeholder="BR" ngModel name="country" />
     </div>
 
@@ -25,33 +27,7 @@
   </form>
 
   <div class="cards-wrapper">
-    <div class="weather-card" *ngIf="!!weatherInfo">
-      <img src={{weatherInfo.iconUrl}} alt="Weather icon">
+    <weather-card [weatherInfo]="weatherInfo" />
 
-      <div>
-        <h3>{{weatherInfo.description}}</h3>
-
-        <p>{{weatherInfo.temperature}}°C</p>
-
-        <span>{{weatherInfo.city}}/{{weatherInfo.country}}</span>
-      </div>
-    </div>
-
-    <div class="pokemon-card" [ngClass]="pokemonTypeInfo.cardClass" *ngIf="!!pokemonInfo && !!pokemonTypeInfo">
-      <div class="card-header">
-        <div>
-          <img src={{pokemonInfo.imageUrl}} alt="Pokemon image">
-        </div>
-
-        <span>{{pokemonInfo.name}}</span>
-      </div>
-
-      <section class="pokemon-stats">
-        <div *ngFor="let stat of pokemonInfo.stats">
-          <span [ngStyle]="{'background': pokemonTypeInfo.mainColor}">{{stat.name}}</span>
-
-          <span [ngStyle]="{'color': pokemonTypeInfo.mainColor}">{{stat.stat}}</span>
-        </div>
-      </section>
-    </div>
+    <pokemon-card [pokemonInfo]="pokemonInfo" [pokemonTypeInfo]="pokemonTypeInfo" />
   </div>

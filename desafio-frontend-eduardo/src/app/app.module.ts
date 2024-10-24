@@ -7,11 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HomeComponent } from './pages/home/home.component';
+import { WeatherCardComponent } from './components/weather-card/weather-card.component';
+import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    WeatherCardComponent,
+    PokemonCardComponent
   ],
   imports: [
     BrowserModule,

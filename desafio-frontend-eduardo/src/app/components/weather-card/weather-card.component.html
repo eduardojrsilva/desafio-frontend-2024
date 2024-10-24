@@ -1,0 +1,11 @@
+<div class="weather-card" *ngIf="!!weatherInfo">
+  <img src={{weatherInfo.iconUrl}} alt="Weather icon">
+
+  <div>
+    <h3>{{weatherInfo.description}}</h3>
+
+    <p>{{weatherInfo.temperature}}°C</p>
+
+    <span>{{weatherInfo.city}}/{{weatherInfo.country}}</span>
+  </div>
+</div>

@@ -14,4 +14,11 @@
       <span [ngStyle]="{'color': pokemonTypeInfo.mainColor}">{{stat.stat}}</span>
     </div>
   </section>
+
+  <section class="pokemon-type">
+    <svg-display-control [pokemonType]="pokemonTypeInfo.type" [fill]="pokemonTypeInfo.mainColor" width="3.125rem"
+      height="3.125rem" />
+
+    <p>{{pokemonTypeInfo.label}}</p>
+  </section>
 </div>

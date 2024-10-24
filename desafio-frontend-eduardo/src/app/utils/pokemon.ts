@@ -15,6 +15,8 @@ export type PokemonType =
 interface PokemonTypeControl {
   mainColor: string;
   cardClass: string;
+  label: string;
+  type: PokemonType;
 }
 
 type TemperatureParams =
@@ -28,12 +30,16 @@ export const pokemonTypeControl: Record<PokemonType, ControlType> = {
     hasTemperature: false,
     mainColor: '#5c320d',
     cardClass: 'normal-card',
+    label: 'Normal',
+    type: 'normal',
   },
 
   electric: {
     hasTemperature: false,
     mainColor: '#444444',
     cardClass: 'electric-card',
+    label: 'Elétrico',
+    type: 'electric',
   },
 
   ice: {
@@ -42,6 +48,8 @@ export const pokemonTypeControl: Record<PokemonType, ControlType> = {
     maxTemperature: 4,
     mainColor: '#01016b',
     cardClass: 'ice-card',
+    label: 'Gelo',
+    type: 'ice',
   },
 
   water: {
@@ -50,6 +58,8 @@ export const pokemonTypeControl: Record<PokemonType, ControlType> = {
     maxTemperature: 9,
     mainColor: '#1414b8',
     cardClass: 'water-card',
+    label: 'Água',
+    type: 'water',
   },
 
   grass: {
@@ -58,6 +68,8 @@ export const pokemonTypeControl: Record<PokemonType, ControlType> = {
     maxTemperature: 14,
     mainColor: '#024514',
     cardClass: 'grass-card',
+    label: 'Grama',
+    type: 'grass',
   },
 
   ground: {
@@ -66,6 +78,8 @@ export const pokemonTypeControl: Record<PokemonType, ControlType> = {
     maxTemperature: 20,
     mainColor: '#291f01',
     cardClass: 'ground-card',
+    label: 'Terra',
+    type: 'ground',
   },
 
   bug: {
@@ -74,6 +88,8 @@ export const pokemonTypeControl: Record<PokemonType, ControlType> = {
     maxTemperature: 26,
     mainColor: '#370252',
     cardClass: 'bug-card',
+    label: 'Inseto',
+    type: 'bug',
   },
 
   rock: {
@@ -82,6 +98,8 @@ export const pokemonTypeControl: Record<PokemonType, ControlType> = {
     maxTemperature: 33,
     mainColor: '#302f30',
     cardClass: 'rock-card',
+    label: 'Pedra',
+    type: 'rock',
   },
 
   fire: {
@@ -90,6 +108,8 @@ export const pokemonTypeControl: Record<PokemonType, ControlType> = {
     maxTemperature: 999,
     mainColor: '#8f0303',
     cardClass: 'fire-card',
+    label: 'Fogo',
+    type: 'fire',
   },
 }
 

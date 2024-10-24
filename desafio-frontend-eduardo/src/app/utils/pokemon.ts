@@ -1,4 +1,4 @@
-import { FormattedPokemon, PokemonByTypeResponse, PokemonInTypeList, PokemonResponse } from "../models/pokemon";
+import { FormattedPokemon, PokemonByTypeResponse, PokemonInTypeList, PokemonList, PokemonResponse } from "../models/pokemon";
 
 export type PokemonType =
   | 'normal'
@@ -154,12 +154,12 @@ export function getPokemonTypeByWeather({
   return type as PokemonType;
 }
 
-export function getRandomPokemon({ pokemon }: PokemonByTypeResponse): PokemonInTypeList {
-  const length = pokemon.length;
+export function getRandomPokemon(pokemonList: PokemonList): PokemonInTypeList {
+  const length = pokemonList.length;
 
   const randomIndex = Math.floor(Math.random() * length);
 
-  const randomPokemon = pokemon.at(randomIndex);
+  const randomPokemon = pokemonList.at(randomIndex);
 
   return randomPokemon?.pokemon as PokemonInTypeList;
 }

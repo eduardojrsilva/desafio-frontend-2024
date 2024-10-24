@@ -5,7 +5,7 @@ import { WeatherService } from '../../services/weather.service';
 import { PokemonService } from '../../services/pokemon.service';
 
 import { FormattedWeather } from '../../models/weather';
-import { FormattedPokemon, PokemonByTypeResponse, PokemonInTypeList } from '../../models/pokemon';
+import { FormattedPokemon, PokemonByTypeResponse, PokemonInTypeList, PokemonList } from '../../models/pokemon';
 
 import { formatWeatherResponse, isRaining } from '../../utils/weather';
 import {
@@ -39,7 +39,7 @@ export class HomeComponent {
 
   constructor(private weatherService: WeatherService, private pokemonService: PokemonService) { }
 
-  onSubmitForm({ value, }: NgForm) {
+  onSubmitForm({ value }: NgForm): void {
     const { city, country } = value;
 
     this.weatherService.getCityWeather(city, country).subscribe((data) => {
@@ -52,17 +52,49 @@ export class HomeComponent {
         isRaining: this.isRaining,
       });
 
-      this.pokemonService.getPokemonByType(this.pokemonType).subscribe((data) => {
-        this.pokemonByType = data;
-
-        this.randomPokemon = getRandomPokemon(this.pokemonByType as PokemonByTypeResponse);
-
-        this.pokemonService.getPokemonByUrl(this.randomPokemon.url).subscribe((data) => {
-          this.pokemonInfo = formatPokemonResponse(data);
-
-          this.pokemonTypeInfo = pokemonTypeControl[this.pokemonType as PokemonType];
-        });
-      });
+      this.getPokemonList();
     });
+  }
+
+  getPokemonList(): void {
+    this.pokemonService.getPokemonByType(this.pokemonType as PokemonType).subscribe((data) => {
+      this.pokemonByType = data;
+
+      this.getPokemonInfo();
+    });
+  }
+
+  getPokemonInfo(filterByName?: string): void {
+    const pokemonList = filterByName
+      ? this.pokemonByType?.pokemon.filter(({ pokemon }) => pokemon.name !== filterByName)
+      : this.pokemonByType?.pokemon;
+
+    this.randomPokemon = getRandomPokemon(pokemonList as PokemonList);
+
+    this.pokemonService.getPokemonByUrl(this.randomPokemon.url).subscribe((data) => {
+      this.pokemonInfo = formatPokemonResponse(data);
+
+      this.pokemonTypeInfo = pokemonTypeControl[this.pokemonType as PokemonType];
+    });
+  }
+
+  cleanForm(): void {
+    this.weatherInfo = undefined;
+
+    this.isRaining = false;
+
+    this.pokemonType = undefined;
+
+    this.pokemonByType = undefined;
+
+    this.randomPokemon = undefined;
+
+    this.pokemonInfo = undefined;
+
+    this.pokemonTypeInfo = undefined;
+  }
+
+  searchNewPokemon(): void {
+    this.getPokemonInfo(this.pokemonInfo?.name);
   }
 }

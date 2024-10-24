@@ -3,10 +3,12 @@ export interface PokemonInTypeList {
   url: string,
 }
 
+export type PokemonList = Array<{
+  pokemon: PokemonInTypeList,
+}>;
+
 export interface PokemonByTypeResponse {
-  pokemon: Array<{
-    pokemon: PokemonInTypeList,
-  }>;
+  pokemon: PokemonList;
 }
 
 export interface PokemonResponse {

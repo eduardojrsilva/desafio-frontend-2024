@@ -23,11 +23,19 @@
       <input class="country-input" type="text" id="country" placeholder="BR" ngModel name="country" />
     </div>
 
-    <button type="submit">Buscar</button>
+    <button class="button" type="submit">Buscar</button>
   </form>
 
-  <div class="cards-wrapper">
-    <weather-card [weatherInfo]="weatherInfo" />
+  <div class="results" *ngIf="!!weatherInfo || !!pokemonInfo">
+    <div class="cards-wrapper">
+      <weather-card [weatherInfo]="weatherInfo" />
 
-    <pokemon-card [pokemonInfo]="pokemonInfo" [pokemonTypeInfo]="pokemonTypeInfo" />
+      <pokemon-card [pokemonInfo]="pokemonInfo" [pokemonTypeInfo]="pokemonTypeInfo" />
+    </div>
+
+    <div class="buttons-wrapper">
+      <button class="button" (click)="cleanForm()">Limpar</button>
+
+      <button class="button" (click)="searchNewPokemon()">Buscar outro pokémon</button>
+    </div>
   </div>

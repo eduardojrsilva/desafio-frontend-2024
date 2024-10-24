@@ -32,7 +32,7 @@ export const pokemonTypeControl: Record<PokemonType, ControlType> = {
 
   electric: {
     hasTemperature: false,
-    mainColor: '#fae120',
+    mainColor: '#444444',
     cardClass: 'electric-card',
   },
 

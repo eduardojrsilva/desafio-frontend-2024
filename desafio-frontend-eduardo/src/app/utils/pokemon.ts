@@ -48,7 +48,7 @@ export const pokemonTypeControl: Record<PokemonType, ControlType> = {
     hasTemperature: true,
     minTemperature: 5,
     maxTemperature: 9,
-    mainColor: '#01016b',
+    mainColor: '#1414b8',
     cardClass: 'water-card',
   },
 

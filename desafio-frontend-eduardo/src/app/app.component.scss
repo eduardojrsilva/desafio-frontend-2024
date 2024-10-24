@@ -2,4 +2,8 @@
   height: 100%;
 
   background: #cef0e8;
+
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: blue #cef0e8;
 }

@@ -22,6 +22,9 @@ import { RockSvgComponent } from './components/svgs/rock-svg/rock-svg.component'
 import { WaterSvgComponent } from './components/svgs/water-svg/water-svg.component';
 import { SvgDisplayControlComponent } from './components/svgs/svg-display-control/svg-display-control.component';
 
+import { TemperaturePipe } from './pipes/temperature.pipe';
+import { PokemonStatNamePipe } from './pipes/pokemon-stat-name.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,9 @@ import { SvgDisplayControlComponent } from './components/svgs/svg-display-contro
     NormalSvgComponent,
     RockSvgComponent,
     WaterSvgComponent,
-    SvgDisplayControlComponent
+    SvgDisplayControlComponent,
+    TemperaturePipe,
+    PokemonStatNamePipe
   ],
   imports: [
     BrowserModule,

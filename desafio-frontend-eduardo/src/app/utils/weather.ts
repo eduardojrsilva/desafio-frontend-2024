@@ -12,7 +12,7 @@ export function formatWeatherResponse(weatherResponse: WeatherResponse): Formatt
     weather: weatherResponse.weather[0].main,
     description: weatherResponse.weather[0].description,
     iconUrl: getIconUrl(weatherResponse.weather[0].icon),
-    temperature: Math.round(weatherResponse.main.temp),
+    temperature: weatherResponse.main.temp,
     city: weatherResponse.name,
     country: weatherResponse.sys.country,
   };

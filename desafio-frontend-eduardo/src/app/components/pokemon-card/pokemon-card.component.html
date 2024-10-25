@@ -9,7 +9,7 @@
 
   <section class="pokemon-stats">
     <div *ngFor="let stat of pokemonInfo.stats">
-      <span [ngStyle]="{'background': pokemonTypeInfo.mainColor}">{{stat.name}}</span>
+      <span [ngStyle]="{'background': pokemonTypeInfo.mainColor}">{{stat.name | pokemonStatName}}</span>
 
       <span [ngStyle]="{'color': pokemonTypeInfo.mainColor}">{{stat.stat}}</span>
     </div>

@@ -42,4 +42,9 @@
     font-size: 0.75rem;
     font-weight: 700;
   }
+
+  @media (max-width: 350px) {
+    padding: 0.5rem;
+    width: 16.875rem;
+  }
 }

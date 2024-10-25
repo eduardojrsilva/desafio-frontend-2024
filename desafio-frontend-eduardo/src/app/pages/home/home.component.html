@@ -27,13 +27,13 @@
   </form>
 
   <div class="results" *ngIf="!!weatherInfo || !!pokemonInfo">
-    <div class="cards-wrapper">
+    <div>
       <weather-card [weatherInfo]="weatherInfo" />
 
       <pokemon-card [pokemonInfo]="pokemonInfo" [pokemonTypeInfo]="pokemonTypeInfo" />
     </div>
 
-    <div class="buttons-wrapper">
+    <div>
       <button class="button" (click)="cleanForm()">Limpar</button>
 
       <button class="button" (click)="searchNewPokemon()">Buscar outro pokémon</button>

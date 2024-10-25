@@ -10,6 +10,10 @@
   height: 31.25rem;
   padding: 1rem;
 
+  @media (max-width: 350px) {
+    padding: 0.5rem;
+    width: 16.875rem;
+  }
 }
 
 .pokemon-card-header {

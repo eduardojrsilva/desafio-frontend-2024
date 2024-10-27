@@ -1,27 +1,33 @@
-# DesafioFrontendEduardo
+# Desafio Front-end Inovamobil
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.10.
+Esse projeto consiste em um desafio proposto pela equipe de front-end na Inovamobil, como parte de um processo seletivo. Segue abaixo as intruções para executar o projeto:
 
-## Development server
+## Clonando o repositório
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+No diretório escolhido para o projeto, abra o terminal e execute o seguinte comando:
 
-## Code scaffolding
+`git clone git@github.com:eduardojrsilva/desafio-frontend-2024.git`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Instalando dependências do projeto
 
-## Build
+Utilizando o mesmo terminal do passo anterior, entre na pasta do projeto com o comando:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`cd desafio-frontend-2024/`
 
-## Running unit tests
+E após isso, entre na pasta da aplicação utilizando:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`cd desafio-frontend-eduardo/`
 
-## Running end-to-end tests
+Feito isso, instale as dependências com o comando:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+`npm install`
 
-## Further help
+## Executando o projeto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Antes de executar o projeto, é preciso inserir uma chave de API válida para o OpenweatherMap.
+
+Essa chave deve ser inserida no arquivo localizado em `src/app/environments/environment.ts`, no campo `weatherApiKey`.
+
+Após a chave ser inserida, basta executar o comando `ng serve` em seu terminal para que o projeto seja executado.
+
+A porta padrão para o projeto é a `http://localhost:4200/`, mas caso esta porta já esteja em uso, confira em seu terminal a nova porta utilizada.

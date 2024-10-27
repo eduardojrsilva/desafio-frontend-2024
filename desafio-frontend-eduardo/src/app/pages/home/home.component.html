@@ -21,13 +21,14 @@
       <div>
         <label for="country">País:</label>
 
-        <input class="country-input" type="text" id="country" placeholder="BR" formControlName="country" />
+        <input class="country-input" type="text" maxlength="3" id="country" placeholder="BR"
+          formControlName="country" />
       </div>
 
       <button class="button" type="submit" [disabled]="!form.valid">Buscar</button>
     </div>
 
-    <small>Apenas o campo Cidade* é obrigatório</small>
+    <small>Apenas o campo <strong>Cidade*</strong> é obrigatório</small>
   </form>
 
   <div class="results" *ngIf="!!weatherInfo || !!pokemonInfo">

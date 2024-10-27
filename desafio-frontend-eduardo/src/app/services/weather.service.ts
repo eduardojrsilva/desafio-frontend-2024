@@ -4,6 +4,8 @@ import { catchError, Observable, throwError } from 'rxjs';
 
 import { WeatherResponse } from '../models/weather';
 
+import { environment } from '../environments/environment';
+
 const NOT_FOUND_CODE = 404;
 
 const CITY_NOT_FOUND = 'Cidade não encontrada';
@@ -29,7 +31,7 @@ export class WeatherService {
     return this.HttpClient.get<WeatherResponse>(`${this.baseURL}`, {
       params: {
         q: qParam,
-        appid: '',
+        appid: environment.weatherApiKey,
         units: 'metric',
         lang: 'pt_br',
       }

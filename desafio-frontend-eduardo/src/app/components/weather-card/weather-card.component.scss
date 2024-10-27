@@ -1,3 +1,13 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .weather-card {
   display: flex;
   flex-direction: column;
@@ -11,6 +21,9 @@
   padding: 1rem;
 
   background: linear-gradient(180deg, #f1f1f1 0%, #c1c1c1 100%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  animation: fadeIn 1s ease-in-out;
 
   >img {
     width: 12.5rem;

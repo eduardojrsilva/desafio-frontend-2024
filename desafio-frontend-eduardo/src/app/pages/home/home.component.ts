@@ -42,10 +42,14 @@ export class HomeComponent {
 
   pokemonTypeInfo: ControlType | undefined;
 
+  apiError: string | undefined;
+
   constructor(private weatherService: WeatherService, private pokemonService: PokemonService) { }
 
   onSubmitForm(): void {
     const { city, country } = this.form.value;
+
+    this.apiError = undefined;
 
     this.weatherService.getCityWeather(city as string, country as string).subscribe((data) => {
       this.weatherInfo = formatWeatherResponse(data);
@@ -58,6 +62,8 @@ export class HomeComponent {
       });
 
       this.getPokemonList();
+    }, (error) => {
+      this.apiError = error.message;
     });
   }
 
@@ -66,6 +72,8 @@ export class HomeComponent {
       this.pokemonByType = data;
 
       this.getPokemonInfo();
+    }, (error) => {
+      this.apiError = error.message;
     });
   }
 
@@ -80,6 +88,8 @@ export class HomeComponent {
       this.pokemonInfo = formatPokemonResponse(data);
 
       this.pokemonTypeInfo = pokemonTypeControl[this.pokemonType as PokemonType];
+    }, (error) => {
+      this.apiError = error.message;
     });
   }
 

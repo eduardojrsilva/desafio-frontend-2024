@@ -31,7 +31,14 @@
     <small>Apenas o campo <strong>Cidade*</strong> é obrigatório</small>
   </form>
 
-  <div class="results" *ngIf="!!weatherInfo || !!pokemonInfo">
+  @if (apiError) {
+  <div class="error-container">
+    <img src="../../../assets/error.png" alt="Erro">
+
+    <p>{{ apiError }}</p>
+  </div>
+  } @else if (!!weatherInfo || !!pokemonInfo) {
+  <div class="results">
     <div>
       <weather-card [weatherInfo]="weatherInfo" />
 
@@ -44,3 +51,4 @@
       <button class="button" (click)="searchNewPokemon()">Buscar outro pokémon</button>
     </div>
   </div>
+  }

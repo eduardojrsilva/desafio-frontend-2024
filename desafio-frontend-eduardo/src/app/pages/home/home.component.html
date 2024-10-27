@@ -10,20 +10,24 @@
       pokémon você capturou!</p>
   </section>
 
-  <form class="form-container" #f="ngForm" (ngSubmit)="onSubmitForm(f)">
+  <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmitForm()">
     <div>
-      <label for="city">Cidade</label>
+      <div>
+        <label for="city">Cidade: *</label>
 
-      <input class="city-input" type="text" id="city" placeholder="Divinópolis" ngModel name="city" required />
+        <input class="city-input" type="text" id="city" placeholder="Divinópolis" formControlName="city" required />
+      </div>
+
+      <div>
+        <label for="country">País:</label>
+
+        <input class="country-input" type="text" id="country" placeholder="BR" formControlName="country" />
+      </div>
+
+      <button class="button" type="submit" [disabled]="!form.valid">Buscar</button>
     </div>
 
-    <div>
-      <label for="country">País</label>
-
-      <input class="country-input" type="text" id="country" placeholder="BR" ngModel name="country" />
-    </div>
-
-    <button class="button" type="submit">Buscar</button>
+    <small>Apenas o campo Cidade* é obrigatório</small>
   </form>
 
   <div class="results" *ngIf="!!weatherInfo || !!pokemonInfo">

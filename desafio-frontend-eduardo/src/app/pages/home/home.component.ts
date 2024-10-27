@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { WeatherService } from '../../services/weather.service';
 import { PokemonService } from '../../services/pokemon.service';
@@ -23,6 +23,11 @@ import {
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  form = new FormGroup({
+    city: new FormControl(''),
+    country: new FormControl(''),
+  });
+
   weatherInfo: FormattedWeather | undefined;
 
   isRaining: boolean = false;
@@ -39,10 +44,10 @@ export class HomeComponent {
 
   constructor(private weatherService: WeatherService, private pokemonService: PokemonService) { }
 
-  onSubmitForm({ value }: NgForm): void {
-    const { city, country } = value;
+  onSubmitForm(): void {
+    const { city, country } = this.form.value;
 
-    this.weatherService.getCityWeather(city, country).subscribe((data) => {
+    this.weatherService.getCityWeather(city as string, country as string).subscribe((data) => {
       this.weatherInfo = formatWeatherResponse(data);
 
       this.isRaining = isRaining(this.weatherInfo.weather);
@@ -79,18 +84,15 @@ export class HomeComponent {
   }
 
   cleanForm(): void {
-    this.weatherInfo = undefined;
+    this.form.reset();
 
+    this.weatherInfo = undefined;
     this.isRaining = false;
 
     this.pokemonType = undefined;
-
     this.pokemonByType = undefined;
-
     this.randomPokemon = undefined;
-
     this.pokemonInfo = undefined;
-
     this.pokemonTypeInfo = undefined;
   }
 
